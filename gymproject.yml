@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gymproject-deployment
+  labels:
+    app: gymproject
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: gymproject
+  template:
+    metadata:
+      labels:
+        app: gymproject
+    spec:
+      containers:
+      - name: gymproject
+        image: bharath300/gymproject
+        ports:
+        - containerPort: 80
